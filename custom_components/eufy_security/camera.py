@@ -151,4 +151,5 @@ class EufySecurityCam(Camera):
             await self._ffmpeg_stream.close()
 
     async def stream_source(self):
-        return self._camera.async_start_stream()
+        self._stream_url = await self._camera.async_start_stream()
+        return self._stream_url
